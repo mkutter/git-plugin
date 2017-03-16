@@ -573,16 +573,47 @@ public class GitPublisher extends Recorder implements Serializable, MatrixAggreg
         private String noteNamespace;
         private boolean noteReplace;
 
+        /**
+         * @deprecated Use {@link #getNoteMsg()}.
+         * @return note message
+         */
+        @Deprecated
         public String getnoteMsg() {
+            return getNoteMsg();
+        }
+
+        /**
+         * @deprecated Use {@link #getNoteNamespace()}.
+         * @return note namespace
+         */
+        @Deprecated
+        public String getnoteNamespace() {
+        	return getNoteNamespace();
+        }
+
+        /**
+         * @deprecated Use {@link #getNoteReplace()}.
+         * @return if the note is to be replaced
+         */
+        @Deprecated
+        public boolean getnoteReplace() {
+        	return getNoteReplace();
+        }
+
+
+        // Provided to allow gitPublisherStep config to access as it fails with getnoteMsg()
+        public String getNoteMsg(){
             return noteMsg;
         }
-        
-        public String getnoteNamespace() {
-        	return noteNamespace;
+
+        // Provided to allow gitPublisherStep config to access as it fails with getnoteNamespace()
+        public String getNoteNamespace(){
+            return noteNamespace;
         }
-        
-        public boolean getnoteReplace() {
-        	return noteReplace;
+
+        // Provided to allow gitPublisherStep config to access as it fails with getnoteReplace()
+        public boolean getNoteReplace(){
+            return noteReplace;
         }
 
         @DataBoundConstructor
